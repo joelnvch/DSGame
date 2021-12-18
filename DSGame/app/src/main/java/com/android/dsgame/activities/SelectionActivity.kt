@@ -2,7 +2,6 @@ package com.android.dsgame.activities
 
 import android.content.Intent
 import android.os.Bundle
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.android.dsgame.databinding.ActivitySelectionBinding
@@ -24,71 +23,62 @@ class SelectionActivity : AppCompatActivity() {
         if (bundle != null)
             color = bundle.getString("color").toString()
 
-
-        setBestCards(color)
-        setAllCards(color)
+        showBestCardsByColor(color)
+        showCardsByColor(color)
     }
 
-
-    private fun setAllCards(color: String) {
-        val allCards = GameManager.getCardsByColor(color)
+    private fun showCardsByColor(color: String) {
+        val cards = GameManager.getCardsByColor(color)
 
         var tripleCard = TripleCard(color)
         val tripleCardList = mutableListOf<TripleCard>()
-        for (i in allCards.indices) {
+        var isAdded = false
+        for (i in cards.indices) {
             if ((i + 1) % 3 == 1) {
                 tripleCard = TripleCard(color)
-                tripleCard.card1 = allCards[i]
+                tripleCard.card1 = cards[i]
+
             } else if ((i + 1) % 3 == 2)
-                tripleCard.card2 = allCards[i]
+                tripleCard.card2 = cards[i]
+
             else if ((i + 1) % 3 == 0) {
-                tripleCard.card3 = allCards[i]
+                tripleCard.card3 = cards[i]
                 tripleCardList.add(tripleCard)
+                isAdded = true
             }
-            if (i == (allCards.size - 1) && tripleCard.card1 != null)
+
+            if (isAdded && !tripleCardList.contains(tripleCard)) {
                 tripleCardList.add(tripleCard)
+                isAdded = false  // reset variable val
+            }
         }
 
         binding.cardList.layoutManager = LinearLayoutManager(this)
         binding.cardList.adapter = CardElementAdaptor(tripleCardList.toTypedArray())
     }
 
-    private fun setBestCards(color: String) {
+    private fun showBestCardsByColor(color: String) {
         val bestCards = GameManager.getBestCards(color)
+        val i = Intent(this, HomeActivity::class.java)
+        i.addFlags( Intent.FLAG_ACTIVITY_CLEAR_TASK)
+        i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+        i.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
 
         binding.ceCard1.setCardElement(bestCards[0])
         binding.ceCard1.setOnClickListener {
             GameManager.setCard(color, bestCards[0].id!!)
-
-            val i = Intent(this, HomeActivity::class.java)
-            i.addFlags( Intent.FLAG_ACTIVITY_CLEAR_TASK)
-            i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-            i.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
-
             startActivity(i)
         }
 
         binding.ceCard2.setCardElement(bestCards[1])
         binding.ceCard2.setOnClickListener {
             GameManager.setCard(color, bestCards[1].id!!)
-
-            val i = Intent(this, HomeActivity::class.java)
-            i.addFlags( Intent.FLAG_ACTIVITY_CLEAR_TASK)
-            i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-            i.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
-
             startActivity(i)
         }
 
         binding.ceCard3.setCardElement(bestCards[2])
         binding.ceCard3.setOnClickListener {
             GameManager.setCard(color, bestCards[2].id!!)
-
-            val i = Intent(it.context, HomeActivity::class.java)
-            i.addFlags( Intent.FLAG_ACTIVITY_CLEAR_TASK)
-            i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-            i.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
-
             startActivity(i)
         }
     }
