@@ -127,5 +127,20 @@
       ],
       "value": 1,
       "card_color": "orange"
+   },
+   {
+      "name": "Cloud Computing",
+      "desc": "Technology that allows remote access to software, storage and data processing through the Internet, being an alternative to running on a personal computer or local server.",
+      "costs": {
+         "blue": 1,
+         "white": 5,
+         "gray": 1,
+         "orange": 1
+      },
+      "letters": [
+         "S"
+      ],
+      "value": 2,
+      "card_color": "orange"
    }
 ]

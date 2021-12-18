@@ -1,4 +1,4 @@
-COLORS = ["black", "blue", "yellow", "red", "green", "purple", "orange"]
+COLORS = ["blue", "black", "yellow", "red", "green", "purple", "orange"]
 
 class Card:
     def __init__(self, id, name, costs, letters, value, card_color):

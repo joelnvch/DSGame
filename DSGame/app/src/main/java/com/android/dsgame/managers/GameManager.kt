@@ -10,7 +10,7 @@ import com.chaquo.python.Python
 
 object GameManager {
     val ALL_CARDS = mutableMapOf<String, MutableMap<Int, Card>>()
-    val COLORS = arrayOf("black", "blue", "yellow", "red", "green", "purple", "orange")
+    val COLORS = arrayOf("blue", "black", "yellow", "red", "green", "purple", "orange")
 
 
     fun initBoard() {

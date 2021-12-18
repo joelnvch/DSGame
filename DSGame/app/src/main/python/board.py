@@ -4,7 +4,7 @@ from card import *
 from collections import Counter
 
 
-COLORS = ["black", "blue", "yellow", "red", "green", "purple", "orange"]
+COLORS = ["blue", "black", "yellow", "red", "green", "purple", "orange"]
 
 class Board:
     def __init__(self, all_cards=None, spots=None):
