@@ -32,8 +32,9 @@ class SelectionActivity : AppCompatActivity() {
 
         var tripleCard = TripleCard(color)
         val tripleCardList = mutableListOf<TripleCard>()
-        var isAdded = false
+        var isAdded: Boolean
         for (i in cards.indices) {
+            isAdded = false
             if ((i + 1) % 3 == 1) {
                 tripleCard = TripleCard(color)
                 tripleCard.card1 = cards[i]
@@ -47,10 +48,9 @@ class SelectionActivity : AppCompatActivity() {
                 isAdded = true
             }
 
-            if (isAdded && !tripleCardList.contains(tripleCard)) {
-                tripleCardList.add(tripleCard)
-                isAdded = false  // reset variable val
-            }
+            if (i == cards.size-1)
+                if (!isAdded && !tripleCardList.contains(tripleCard))
+                    tripleCardList.add(tripleCard)
         }
 
         binding.cardList.layoutManager = LinearLayoutManager(this)

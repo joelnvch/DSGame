@@ -136,17 +136,25 @@
 
     <TextView
             android:text="Score: "
-            android:layout_width="171dp"
-            android:layout_height="26dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textColorHighlight="#0B0A0A"
+            app:layout_constraintTop_toBottomOf="@+id/ce_black"
+            android:layout_marginTop="164dp"
+            android:textColor="#151414" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:id="@+id/tvScore"
             android:textSize="20sp"
             android:textColorHighlight="#0B0A0A"
             app:layout_constraintTop_toBottomOf="@+id/ce_black"
-            android:layout_marginTop="168dp"
-            app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="40dp"
-            android:textColor="#151414"/>
-
+            android:layout_marginTop="188dp"
+            android:textColor="#151414" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" android:gravity="center"/>
     <ImageView
             android:layout_width="26dp"
             android:layout_height="25dp"
@@ -156,6 +164,13 @@
             android:layout_marginStart="235dp"
             app:layout_constraintBottom_toBottomOf="@+id/etBoardName"
             android:layout_marginBottom="15dp"/>
+    <ImageButton
+            android:layout_width="63dp"
+            android:layout_height="64dp"
+            android:background="@android:drawable/ic_menu_add"
+            app:backgroundTint="#101010"
+            android:id="@+id/btAddCard"
+            app:layout_constraintStart_toStartOf="parent" app:layout_constraintBottom_toBottomOf="parent"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

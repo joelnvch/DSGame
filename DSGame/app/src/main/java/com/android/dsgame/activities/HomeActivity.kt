@@ -50,7 +50,7 @@ class HomeActivity : AppCompatActivity() {
 
 
         // UPDATE SCORE
-        binding.tvScore.text = binding.tvScore.text.toString() + board.score
+        binding.tvScore.text = board.score.toString()
         // SET NAME BOARD VALUE
         binding.etBoardName.setText(board.name)
 
@@ -80,6 +80,12 @@ class HomeActivity : AppCompatActivity() {
 
             GameManager.initBoard()
             startActivity(intent)
+        }
+
+
+        // ADD CARD
+        binding.btAddCard.setOnClickListener{
+            startActivity(Intent(this, ExtraCardActivity::class.java))
         }
     }
 }

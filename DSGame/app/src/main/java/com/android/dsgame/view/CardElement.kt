@@ -39,9 +39,6 @@ class CardElement : FrameLayout {
         }
     }
 
-    //setcardelement otro con redireccion incluida
-
-
     private fun setName(name: String){
         val nameView = view.findViewById<TextView>(R.id.tvCardName)
         nameView.text = name
