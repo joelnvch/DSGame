@@ -5,11 +5,16 @@ from collections import Counter
 
 
 COLORS = ["blue", "black", "yellow", "red", "green", "purple", "orange"]
+EXTRA_CARD_COLORS = ["blue", "white","black", "yellow", "red", "green", "purple", "orange"]
 
 class Board:
-    def __init__(self, all_cards=None, spots=None):
+    def __init__(self, all_cards=None, spots=None, all_extra_cards=None):
         self.all_cards = all_cards
         self.spots = spots
+
+        self.all_extra_cards = all_extra_cards
+        self.extra_cards = dict.fromkeys(EXTRA_CARD_COLORS)
+
         self.score = 0
 
 
@@ -79,6 +84,11 @@ class Board:
             if rep_number > 1:
                 value += rep_number - 1
 
+        # add extra cards value
+        for ext_card in self.extra_cards.values():
+            if ext_card is not None:
+                value += ext_card.value
+
         # reset old value of spot
         if old_card:
             self.spots[test_card.card_color] = old_card
@@ -87,6 +97,14 @@ class Board:
     def set_card(self, color, card_id):
         card = self.all_cards[color][card_id]
         self.spots[color] = card
+        self.score = self.calculate_board_value()
+
+    def add_extra_card(self, color):
+        self.extra_cards[color] = self.all_extra_cards[color]
+        self.score = self.calculate_board_value()
+
+    def remove_extra_card(self, color):
+        del self.extra_cards[color]
         self.score = self.calculate_board_value()
 
     def get_letters_and_costs(self):
@@ -103,6 +121,8 @@ class Board:
         self.score = kt_board.getScore()
         for color in COLORS:
             self.spots[color] = transform_card(kt_board.getSpots().get(color))
+        for color in EXTRA_CARD_COLORS:
+            self.extra_cards[color] = transform_card(kt_board.getExtraCards().get(color))
 
 
 def init_board(path_all_cards):
@@ -111,24 +131,32 @@ def init_board(path_all_cards):
 
     # load cards
     cards = dict.fromkeys(COLORS)
+    cd_extra_dict = dict.fromkeys(EXTRA_CARD_COLORS)
+
     for filename in os.listdir(path_all_cards):
         type = filename.split(".")[0].split("-")[1]
-        if filename.endswith(".json") and type in COLORS:
+        if filename.endswith(".json"):
             json_name = os.path.join(path_all_cards, filename)
             with open(json_name, 'r', encoding="utf8") as card_file:
                 card_dict = {}
                 id = 0
                 card_data = json.loads(card_file.read())
-                for card in card_data:
-                    id+=1
-                    card_dict[id] = Card(id, card['name'], card['costs'], card['letters'], card['value'], card['card_color'])
 
-                cards[type] = card_dict
+                if type in COLORS:
+                    for card in card_data:
+                        id+=1
+                        card_dict[id] = Card(id, card['name'], card['costs'], card['letters'], card['value'], card['card_color'])
+                    cards[type] = card_dict
+
+                elif type == "extra":
+                    for card in card_data:
+                        print(card['card_color'])
+                        cd_extra_dict[card['card_color']] = Card(1, card['name'], card['costs'], card['letters'], card['value'], card['card_color'])
 
     # set board vals
     all_cards = cards
     spots = dict.fromkeys(COLORS)
 
-    board = Board(all_cards, spots)
+    board = Board(all_cards, spots, cd_extra_dict)
 
     return board

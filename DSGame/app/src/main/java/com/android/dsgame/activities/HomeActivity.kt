@@ -2,7 +2,9 @@ package com.android.dsgame.activities
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.android.dsgame.activities.MyApplication.Companion.PACKAGE_NAME
 import com.android.dsgame.activities.MyApplication.Companion.board
@@ -86,6 +88,16 @@ class HomeActivity : AppCompatActivity() {
         // ADD CARD
         binding.btAddCard.setOnClickListener{
             startActivity(Intent(this, ExtraCardActivity::class.java))
+        }
+
+        // NARRATIVE
+        if (board.spots["orange"] != null) {
+            binding.btNarrative.visibility = View.VISIBLE
+            binding.btNarrative.setOnClickListener{
+                AlertDialog.Builder(this).apply {
+                    setMessage(GameManager.createCompanyMessage(board.spots["blue"]))
+                }.show()
+            }
         }
     }
 }

@@ -30,31 +30,10 @@ class SelectionActivity : AppCompatActivity() {
     private fun showCardsByColor(color: String) {
         val cards = GameManager.getCardsByColor(color)
 
-        var tripleCard = TripleCard(color)
-        val tripleCardList = mutableListOf<TripleCard>()
-        var isAdded: Boolean
-        for (i in cards.indices) {
-            isAdded = false
-            if ((i + 1) % 3 == 1) {
-                tripleCard = TripleCard(color)
-                tripleCard.card1 = cards[i]
-
-            } else if ((i + 1) % 3 == 2)
-                tripleCard.card2 = cards[i]
-
-            else if ((i + 1) % 3 == 0) {
-                tripleCard.card3 = cards[i]
-                tripleCardList.add(tripleCard)
-                isAdded = true
-            }
-
-            if (i == cards.size-1)
-                if (!isAdded && !tripleCardList.contains(tripleCard))
-                    tripleCardList.add(tripleCard)
-        }
+        val tripleCardList = TripleCard.createTripleCardList(cards)
 
         binding.cardList.layoutManager = LinearLayoutManager(this)
-        binding.cardList.adapter = CardElementAdaptor(tripleCardList.toTypedArray())
+        binding.cardList.adapter = CardElementAdaptor(tripleCardList.toTypedArray(), "SPOTS")
     }
 
     private fun showBestCardsByColor(color: String) {

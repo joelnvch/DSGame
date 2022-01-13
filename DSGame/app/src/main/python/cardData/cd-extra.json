@@ -1,0 +1,108 @@
+[
+   {
+      "name": "Data-driven Company",
+      "desc": "To make data and analytics part of the business strategy, its systems, processes and culture.",
+      "costs": {
+         "blue": 4,
+         "white": 1,
+         "gray": 1
+      },
+      "letters": [],
+      "value": 1,
+      "card_color": "blue"
+   },
+   {
+      "name": "Imputation of data",
+      "desc": "Process of replacing missing data with substituted (estimated) values.",
+      "costs": {
+         "blue": 2,
+         "white": 2,
+         "gray": 1,
+         "yellow": 2
+      },
+      "letters": [],
+      "value": 1,
+      "card_color": "white"
+   },
+   {
+      "name": "Resampling",
+      "desc": "Using random subsets of the data for estimating the precision of sample statistics, exchanging labels on data points, validating models, etc.",
+      "costs": {
+         "blue": 1,
+         "white": 3,
+         "gray": 3,
+         "yellow": 1
+      },
+      "letters": [],
+      "value": 1,
+      "card_color": "black"
+   },
+   {
+      "name": "Data Cleaning",
+      "desc": "Detecting and correcting corrupt or inaccurate observations from a database and identifying incomplete, incorrect, inaccurate or irrelevant data features or observations and then replacing, modifying, or deleting the dirty data.",
+      "costs": {
+         "blue": 1,
+         "white": 3,
+         "gray": 2,
+         "yellow": 2
+      },
+      "letters": [],
+      "value": 2,
+      "card_color": "yellow"
+   },
+   {
+      "name": "Outlier Detection",
+      "desc": "Process of detecting and subsequently excluding outliers from a given set of data, using Numeric outlier, Z-Score, DBSCAN, Isolation Forest, etc.",
+      "costs": {
+         "blue": 2,
+         "white": 0,
+         "gray": 3,
+         "yellow": 2,
+         "red": 1
+      },
+      "letters": [],
+      "value": 2,
+      "card_color": "red"
+   },
+   {
+      "name": "Train, Test, Validation",
+      "desc": "The three sets the data set is splitted on in order to train, test and validate the model. ",
+      "costs": {
+         "blue": 1,
+         "gray": 2,
+         "yellow": 1,
+         "red": 2,
+         "green": 1
+      },
+      "letters": [],
+      "value": 2,
+      "card_color": "green"
+   },
+   {
+      "name": "Model Stability",
+      "desc": "Stability analysis enables to determine how the input variations are going to impact the output of the model. ",
+      "costs": {
+         "blue": 2,
+         "white": 0,
+         "yellow": 3,
+         "red": 1,
+         "gray": 1
+      },
+      "letters": [],
+      "value": 2,
+      "card_color": "purple"
+   },
+   {
+      "name": "Parsimonious model",
+      "desc": "Parsimonious models are simple models with great explanatory and predictive power.",
+      "costs": {
+         "blue": 2,
+         "white": 3,
+         "gray": 1,
+         "orange": 1
+      },
+      "letters": [],
+      "value": 2,
+      "card_color": "orange"
+   }
+]

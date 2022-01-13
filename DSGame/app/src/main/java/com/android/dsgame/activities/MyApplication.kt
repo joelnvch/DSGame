@@ -30,6 +30,10 @@ class MyApplication : Application(){
                 map[item2.key.toInt()] = Card(item2.value)
             GameManager.ALL_CARDS[item.key.toString()] = map
         }
+
+        // SAVE ALL EXTRA CARDS VALUE
+        for (item in pyBoard.getValue("all_extra_cards").asMap())
+            GameManager.ALL_EXTRA_CARDS[item.key.toString()] = Card(item.value)
     }
 
     private fun initPython(){

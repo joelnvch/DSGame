@@ -171,6 +171,12 @@
             app:backgroundTint="#101010"
             android:id="@+id/btAddCard"
             app:layout_constraintStart_toStartOf="parent" app:layout_constraintBottom_toBottomOf="parent"/>
+    <ImageView
+            android:layout_width="46dp"
+            android:layout_height="42dp" app:srcCompat="@drawable/dialog_icon" android:id="@+id/btNarrative"
+            android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/ivTaskbar"
+            app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="4dp"
+            android:visibility="gone"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

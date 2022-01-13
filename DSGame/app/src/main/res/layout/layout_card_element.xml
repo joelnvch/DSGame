@@ -15,7 +15,7 @@
 
         <ImageView
                 android:layout_width="129dp"
-                android:layout_height="144dp" app:srcCompat="@drawable/white_hexagon"
+                android:layout_height="144dp" app:srcCompat="@drawable/empty_hexagon"
                 android:rotation="90"
                 app:layout_constraintStart_toStartOf="@+id/btCard"
                 app:layout_constraintEnd_toEndOf="@+id/btCard" app:layout_constraintTop_toTopOf="parent"/>

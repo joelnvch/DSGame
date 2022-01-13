@@ -9,6 +9,8 @@ class Board(){
     var spots: MutableMap<String, Card?> = mutableMapOf()
     var score: Int = 0
 
+    var extraCards: MutableMap<String, Card?> = mutableMapOf()
+
     var userId: String = ""
     var date: Date = Calendar.getInstance().time
 
