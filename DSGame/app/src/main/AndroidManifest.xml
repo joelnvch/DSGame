@@ -26,6 +26,7 @@
         <activity android:name=".activities.LoginActivity"/>
         <activity android:name=".activities.RegisterActivity"/>
         <activity android:name=".activities.HomeActivity"/>
+        <activity android:name=".activities.ExtraCardActivity"/>
         <activity
                 android:name=".activities.CardSelectionActivity"
                 android:noHistory="true"/>
