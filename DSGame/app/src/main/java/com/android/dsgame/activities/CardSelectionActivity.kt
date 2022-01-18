@@ -4,18 +4,18 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.android.dsgame.databinding.ActivitySelectionBinding
+import com.android.dsgame.databinding.ActivityCardSelectionBinding
 import com.android.dsgame.managers.GameManager
 import com.android.dsgame.model.TripleCard
 import com.android.dsgame.view.adaptors.CardElementAdaptor
 
 
-class SelectionActivity : AppCompatActivity() {
-    private lateinit var binding: ActivitySelectionBinding
+class CardSelectionActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityCardSelectionBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivitySelectionBinding.inflate(layoutInflater)
+        binding = ActivityCardSelectionBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         val bundle = intent.extras

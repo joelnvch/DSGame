@@ -39,7 +39,10 @@ class LoginActivity : AppCompatActivity() {
             authenticator.signInWithEmailAndPassword(binding.etEmail.text.toString(), binding.etPassword.text.toString())
                 .addOnSuccessListener {
                     MyApplication.board.userId = authenticator.currentUser!!.uid
-                    startActivity(Intent(this, HomeActivity::class.java))
+                    val intent = Intent(this, AppSelectionActivity::class.java)
+                    intent.addFlags (Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
+                    intent.addFlags( Intent.FLAG_ACTIVITY_NO_ANIMATION)
+                    startActivity(intent)
                 }
                 .addOnFailureListener {
                     AlertDialog.Builder(this).apply {

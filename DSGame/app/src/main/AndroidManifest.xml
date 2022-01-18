@@ -10,24 +10,25 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
-
+        <activity android:name=".activities.AppSelectionActivity">
+        </activity>
         <activity
                 android:name=".activities.LauncherActivity"
-                android:theme="@style/SplashTheme"
-                android:noHistory = "true"
-                android:exported="true">
+                android:exported="true"
+                android:noHistory="true"
+                android:theme="@style/SplashTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
 
-                <intent-filter>
-                    <action android:name="android.intent.action.MAIN" />
-                    <category android:name="android.intent.category.LAUNCHER" />
-                </intent-filter>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
         </activity>
-
         <activity android:name=".activities.LoginActivity"/>
         <activity android:name=".activities.RegisterActivity"/>
-
-        <activity android:name=".activities.HomeActivity"  />
-        <activity android:name=".activities.SelectionActivity" android:noHistory = "true"/>
+        <activity android:name=".activities.HomeActivity"/>
+        <activity
+                android:name=".activities.CardSelectionActivity"
+                android:noHistory="true"/>
         <activity android:name=".activities.HistoryActivity"/>
     </application>
 

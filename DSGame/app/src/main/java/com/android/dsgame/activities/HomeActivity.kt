@@ -34,7 +34,7 @@ class HomeActivity : AppCompatActivity() {
             cardElement.setOnClickListener {
                 if (color == "blue" || (board.spots[COLORS[i-1]] != null)) {
                     board.name = binding.etBoardName.text.toString() // save board name
-                    val i = Intent(this, SelectionActivity::class.java)
+                    val i = Intent(this, CardSelectionActivity::class.java)
                     i.putExtra("color", color)
                     startActivity(i)
                 } else
