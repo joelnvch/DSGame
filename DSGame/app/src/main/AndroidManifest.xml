@@ -10,7 +10,7 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
-        <activity android:name=".activities.ExtraCardActivity">
+        <activity android:name=".activities.AppSelectionActivity">
         </activity>
         <activity
                 android:name=".activities.LauncherActivity"
@@ -27,7 +27,7 @@
         <activity android:name=".activities.RegisterActivity"/>
         <activity android:name=".activities.HomeActivity"/>
         <activity
-                android:name=".activities.SelectionActivity"
+                android:name=".activities.CardSelectionActivity"
                 android:noHistory="true"/>
         <activity android:name=".activities.HistoryActivity"/>
     </application>
