@@ -8,7 +8,7 @@
         tools:context=".activities.AppSelectionActivity">
 
     <Button
-            android:text="Game Calculator"
+            android:text="Best Play Calculator"
             android:backgroundTint="@color/light_blue_600"
             android:layout_width="270dp"
             android:layout_height="190dp" android:id="@+id/btBoardCalculator"
